@@ -1,6 +1,6 @@
 import React from "react"
 import Proptypes from "prop-types"
-import { Form, Row, Col } from "react-bootstrap"
+import { Col, Form, Row } from "react-bootstrap"
 
 import ProviderName from "../components/input/providerName"
 import ProviderPosition from "./input/providerPosition"
@@ -32,17 +32,17 @@ const EdbaseForm = () => {
         </Col>
       </Form.Group>
       <ProviderSchool />
+      <ManagementBody />
+      <SchoolTypes />
       <Department />
-      <Description />
       <GadgetsForStudents />
       <GadgetsForTeachers />
       <Keywords />
-      <ManagementBody />
       <ReportFormats />
-      <SchoolTypes />
       <Subjects />
       <TargetParsons />
       <TargetScenes />
+      <Description />
       <Urls />
     </Form>
   )

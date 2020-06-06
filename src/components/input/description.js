@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Row, Col } from "react-bootstrap"
+import { Form } from "react-bootstrap"
 
 const Description = () => (
   <Form.Group controlId="description">
