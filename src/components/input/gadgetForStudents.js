@@ -1,13 +1,13 @@
 import React from "react"
 import {Form, Row, Col} from "react-bootstrap"
 
-const GadgetsForStudents = () => (
-  <Form.Group as={Row} controlId="gadgets-for-students">
+const GadgetForStudents = () => (
+  <Form.Group as={Row} controlId="gadget-for-students">
     <Form.Label column sm="2">生徒が使用するガジェット</Form.Label>
     <Col sm="10">
-      <Form.Control type="text"/>
+      <Form.Control name="gadget_for_students" type="text"/>
     </Col>
   </Form.Group>
 )
 
-export default GadgetsForStudents
+export default GadgetForStudents

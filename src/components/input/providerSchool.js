@@ -5,7 +5,7 @@ const ProviderSchool = () => (
   <Form.Group as={Row} controlId="provider-school">
     <Form.Label column sm="2">提供者：学校名</Form.Label>
     <Col sm="10">
-      <Form.Control type="text" />
+      <Form.Control name="provider_school" type="text" />
     </Col>
   </Form.Group>
 )

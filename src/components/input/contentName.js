@@ -5,7 +5,7 @@ const ContentName = () => (
   <Form.Group as={Row} controlId="content-name">
     <Form.Label column sm="2">コンテンツ名称</Form.Label>
     <Col sm="10">
-      <Form.Control type="text" />
+      <Form.Control name="content_name" type="text" />
     </Col>
   </Form.Group>
 )

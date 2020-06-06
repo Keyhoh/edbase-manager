@@ -5,7 +5,7 @@ const Subjects = () => (
   <Form.Group as={Row} controlId="subjects">
     <Form.Label column sm="2">扱われている教科</Form.Label>
     <Col sm="10">
-      <Form.Control type="text"/>
+      <Form.Control name="subjects" type="text"/>
     </Col>
   </Form.Group>
 )

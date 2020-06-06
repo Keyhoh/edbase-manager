@@ -5,7 +5,7 @@ const ManagementBody = () => (
   <Form.Group as={Row} controlId="management-body">
     <Form.Label column sm="2">運営母体</Form.Label>
     <Col sm="10">
-      <Form.Control type="text" />
+      <Form.Control name="management_body" type="text" />
     </Col>
   </Form.Group>
 )

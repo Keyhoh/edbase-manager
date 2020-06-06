@@ -5,7 +5,7 @@ const TargetParsons = () => (
   <Form.Group as={Row} controlId="target-parsons">
     <Form.Label column sm="2">レポートを活用する人</Form.Label>
     <Col sm="10">
-      <Form.Control type="text"/>
+      <Form.Control name="target_parsons" type="text"/>
     </Col>
   </Form.Group>
 )

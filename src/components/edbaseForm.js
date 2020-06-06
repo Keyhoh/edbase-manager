@@ -1,5 +1,4 @@
 import React from "react"
-import Proptypes from "prop-types"
 import { Col, Form, Row } from "react-bootstrap"
 
 import ProviderName from "../components/input/providerName"
@@ -8,8 +7,8 @@ import ProviderSchool from "./input/providerSchool"
 import ContentName from "./input/contentName"
 import Department from "./input/department"
 import Description from "./input/description"
-import GadgetsForStudents from "./input/gadgetsForStudents"
-import GadgetsForTeachers from "./input/gadgetsForTeachers"
+import GadgetForStudents from "./input/gadgetForStudents"
+import GadgetsForTeachers from "./input/gadgetForTeachers"
 import Keywords from "./input/keywords"
 import ManagementBody from "./input/managementBody"
 import ReportFormats from "./input/reportFormats"
@@ -18,38 +17,38 @@ import Subjects from "./input/subjects"
 import TargetParsons from "./input/targetParsons"
 import TargetScenes from "./input/targetScenes"
 import Urls from "./input/urls"
+import CsvExport from "./csvExport"
 
-const EdbaseForm = () => {
-  return (
-    <Form>
-      <ContentName />
-      <Form.Group as={Row} controlId="provider">
-        <Col>
-          <ProviderName />
-        </Col>
-        <Col>
-          <ProviderPosition />
-        </Col>
-      </Form.Group>
-      <ProviderSchool />
-      <ManagementBody />
-      <SchoolTypes />
-      <Department />
-      <GadgetsForStudents />
-      <GadgetsForTeachers />
-      <Keywords />
-      <ReportFormats />
-      <Subjects />
-      <TargetParsons />
-      <TargetScenes />
-      <Description />
-      <Urls />
-    </Form>
-  )
-}
-
-Form.propTypes = {
-  datum: Proptypes.object.isRequired
+class EdbaseForm extends React.Component {
+  render() {
+    return (
+      <Form>
+        <ContentName />
+        <Form.Group as={Row} controlId="provider">
+          <Col>
+            <ProviderName />
+          </Col>
+          <Col>
+            <ProviderPosition />
+          </Col>
+        </Form.Group>
+        <ProviderSchool />
+        <ManagementBody />
+        <SchoolTypes />
+        <Department />
+        <GadgetForStudents />
+        <GadgetsForTeachers />
+        <Keywords />
+        <ReportFormats />
+        <Subjects />
+        <TargetParsons />
+        <TargetScenes />
+        <Description />
+        <Urls />
+        <CsvExport />
+      </Form>
+    )
+  }
 }
 
 export default EdbaseForm
