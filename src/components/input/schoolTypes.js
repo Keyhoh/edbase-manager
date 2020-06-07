@@ -1,9 +1,18 @@
 import React from "react"
 import { Form, Row, Col } from "react-bootstrap"
 
+/**
+ * 実践の現場となっている学校種
+ * - 必須項目
+ * - 選択項目
+ * - 複数可
+ *
+ * @returns {*}
+ * @constructor
+ */
 const SchoolTypes = () => (
   <Form.Group as={Row} controlId="school-types">
-    <Form.Label column sm="2">学校種</Form.Label>
+    <Form.Label column sm="2">実践の現場となっている学校種</Form.Label>
     <Col sm="10" className="d-flex flex-wrap">
       <Form.Check name="school_types" className="mr-4" id="school-type-kindergarten" label="幼稚園" value="幼稚園"/>
       <Form.Check name="school_types" className="mr-4" id="school-type-elementary" label="小学校" value="小学校"/>

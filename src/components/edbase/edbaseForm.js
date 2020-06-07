@@ -7,21 +7,17 @@ import ProviderSchool from "../input/providerSchool"
 import ContentName from "../input/contentName"
 import Department from "../input/department"
 import Description from "../input/description"
-import GadgetForStudents from "../input/gadgetForStudents"
-import GadgetsForTeachers from "../input/gadgetForTeachers"
+import IctItems from "../input/ictItems"
 import Keywords from "../input/keywords"
 import ManagementBody from "../input/managementBody"
-import ReportFormats from "../input/reportFormats"
 import SchoolTypes from "../input/schoolTypes"
 import Subjects from "../input/subjects"
-import TargetParsons from "../input/targetParsons"
-import TargetScenes from "../input/targetScenes"
 import Urls from "../input/urls"
 import CsvExport from "../csvExport"
 import EdbaseFormData from "./edbaseFormData"
 
 class EdbaseForm extends React.Component {
-  
+
   constructor(props) {
     super(props)
     this.show = this.show.bind(this)
@@ -50,13 +46,9 @@ class EdbaseForm extends React.Component {
         <ManagementBody />
         <SchoolTypes />
         <Department />
-        <GadgetForStudents />
-        <GadgetsForTeachers />
+        <IctItems />
         <Keywords />
-        <ReportFormats />
         <Subjects />
-        <TargetParsons />
-        <TargetScenes />
         <Description />
         <Urls />
         <CsvExport />
