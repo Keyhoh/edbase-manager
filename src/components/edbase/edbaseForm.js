@@ -18,11 +18,25 @@ import TargetParsons from "../input/targetParsons"
 import TargetScenes from "../input/targetScenes"
 import Urls from "../input/urls"
 import CsvExport from "../csvExport"
+import EdbaseFormData from "./edbaseFormData"
 
 class EdbaseForm extends React.Component {
+  
+  constructor(props) {
+    super(props)
+    this.show = this.show.bind(this)
+  }
+
+  show(e) {
+    e.preventDefault()
+    const form = document.querySelector("form")
+    const edbaseForm = new EdbaseFormData(form)
+    console.log(edbaseForm.toCsv())
+  }
+
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.show}>
         <ContentName />
         <Form.Group as={Row} controlId="provider">
           <Col>
