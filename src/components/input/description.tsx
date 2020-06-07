@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import { Form } from "react-bootstrap"
 
 /**
@@ -13,7 +13,7 @@ import { Form } from "react-bootstrap"
 const Description = () => (
   <Form.Group controlId="description">
     <Form.Label>実践事例レポートの内容詳細</Form.Label>
-    <Form.Control required name="description" as="textarea" rows="4" />
+    <Form.Control required name="description" as="textarea" rows={4} />
   </Form.Group>
 )
 

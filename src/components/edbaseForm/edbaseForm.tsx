@@ -1,10 +1,10 @@
-import React from "react"
+import * as React from "react"
 import { Col, Form, Row } from "react-bootstrap"
 
 import ProviderName from "../input/providerName"
 import ProviderPosition from "../input/providerPosition"
 import ProviderSchool from "../input/providerSchool"
-import ContentName from "../input/contentName"
+import ContentName from "../input/contentName/contentName"
 import Department from "../input/department"
 import Description from "../input/description"
 import IctItems from "../input/ictItems"
