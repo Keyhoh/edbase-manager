@@ -1,8 +1,8 @@
-import React from "react"
+import * as React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import EdbaseForm from "../components/edbase/edbaseForm"
+import EdbaseForm from "../components/edbaseForm/edbaseForm"
 
 const IndexPage = () => (
   <Layout>
