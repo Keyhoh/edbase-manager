@@ -1,7 +1,9 @@
 import * as React from "react"
-import { Col, Form, Row } from "react-bootstrap"
+import { Form, Row } from "react-bootstrap"
 import { graphql, useStaticQuery } from "gatsby"
 import { v4 as uuid } from "uuid"
+
+import SelectCheck from "../../input/select/check"
 
 /**
  * 実践の現場となっている学校種
@@ -25,13 +27,16 @@ const SchoolTypes = () => {
   )
   const getChecks = (checkList: string[]) => {
     return checkList.map((name: string) => (
-      <Form.Check key={uuid().toString()} name="school_types" className="mr-4" label={name} value={name} />
+      <Form.Check key={uuid().toString()} name="school_types" inline={true} label={name} value={name} />
     ))
   }
+  const getEntries = (nameList: string[]) => nameList.map((name: string) => {
+    return { label: name, value: name }
+  })
   return (
     <Form.Group as={Row} controlId="school-types">
       <Form.Label column sm="2">{school_types.name}</Form.Label>
-      <Col sm="10" className="d-flex flex-wrap">{getChecks(school_types.format)}</Col>
+      <SelectCheck name="school_types" inline entries={getEntries(school_types.format)} />
     </Form.Group>
   )
 }
