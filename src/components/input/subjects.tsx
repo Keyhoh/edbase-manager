@@ -1,5 +1,6 @@
 import * as React from "react"
 import {Form, Row, Col} from "react-bootstrap"
+import { graphql, useStaticQuery } from "gatsby"
 
 /**
  * 扱われている教科の入力コンポーネント
@@ -9,13 +10,24 @@ import {Form, Row, Col} from "react-bootstrap"
  * @returns {*}
  * @constructor
  */
-const Subjects = () => (
-  <Form.Group as={Row} controlId="subjects">
-    <Form.Label column sm="2">扱われている教科</Form.Label>
-    <Col sm="10">
-      <Form.Control name="subjects" type="text"/>
-    </Col>
-  </Form.Group>
-)
+const Subjects = () => {
+  const { dataJson: { subjects } } = useStaticQuery(graphql`
+    {
+      dataJson {
+        subjects {
+          name
+        }
+      }
+    }`
+  )
+  return (
+    <Form.Group as={Row} controlId="subjects">
+      <Form.Label column sm="2">{subjects.name}</Form.Label>
+      <Col sm="10">
+        <Form.Control required={subjects.required} name="subjects" type="text"/>
+      </Col>
+    </Form.Group>
+  )
+}
 
 export default Subjects

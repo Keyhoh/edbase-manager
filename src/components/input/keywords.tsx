@@ -1,5 +1,6 @@
 import * as React from "react"
-import { Form, Row, Col } from "react-bootstrap"
+import { Col, Form, Row } from "react-bootstrap"
+import { graphql, useStaticQuery } from "gatsby"
 
 /**
  * 実践されている内容のキーワード
@@ -10,13 +11,24 @@ import { Form, Row, Col } from "react-bootstrap"
  * @returns {*}
  * @constructor
  */
-const Keywords = () => (
-  <Form.Group as={Row} controlId="keywords">
-    <Form.Label column sm="2">実践されている内容のキーワード</Form.Label>
-    <Col sm="10">
-      <Form.Control name="keywords" type="text" />
-    </Col>
-  </Form.Group>
-)
-
+const Keywords = () => {
+  const { dataJson: { keywords } } = useStaticQuery(graphql`
+    {
+      dataJson {
+        keywords {
+          name
+          required
+        }
+      }
+    }`
+  )
+  return (
+    <Form.Group as={Row} controlId="keywords">
+      <Form.Label column sm="2">{keywords.name}</Form.Label>
+      <Col sm="10">
+        <Form.Control required={keywords.required} name="keywords" type="text" />
+      </Col>
+    </Form.Group>
+  )
+}
 export default Keywords
