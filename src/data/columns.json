@@ -1,0 +1,161 @@
+{
+  "uuid": {
+    "name": "uuid",
+    "required": true,
+    "multiple": false
+  },
+  "timestamp": {
+    "name": "タイムスタンプ",
+    "required": true,
+    "multiple": false,
+    "format": "yyyy-MM-dd HH:mm:ss"
+  },
+  "management_body": {
+    "name": "運営母体",
+    "required": true,
+    "multiple": false,
+    "format": [
+      "市区町村立",
+      "都道府県・政令指定都市立",
+      "国立",
+      "私立",
+      "株式会社立",
+      "その他"
+    ]
+  },
+  "organization": {
+    "name": "学校・組織名",
+    "required": true,
+    "multiple": false
+  },
+  "providers": {
+    "name": "提供者",
+    "required": false,
+    "multiple": true,
+    "format": {
+      "name": {
+        "name": "氏名",
+        "required": true,
+        "multiple": false
+      },
+      "position": {
+        "name": "役職",
+        "required": false,
+        "multiple": false
+      }
+    }
+  },
+  "school_types": {
+    "name": "学校種",
+    "required": true,
+    "multiple": true,
+    "format": [
+      "幼稚園",
+      "小学校",
+      "中学校",
+      "高等学校",
+      "特別支援学校",
+      "専門学校・大学校",
+      "その他"
+    ]
+  },
+  "departments": {
+    "name": "学科",
+    "required": false,
+    "multiple": true
+  },
+  "grade": {
+    "name": "学年",
+    "required": false,
+    "multiple": false
+  },
+  "categories": {
+    "name": "カテゴリ",
+    "required": true,
+    "multiple": true,
+    "format": [
+      "教育委員会",
+      "学校運営",
+      "保護者対応",
+      "ICTツール",
+      "授業設計",
+      "その他"
+    ]
+  },
+  "keywords": {
+    "name": "実践されている内容のキーワード",
+    "required": true,
+    "multiple": true
+  },
+  "subjects": {
+    "name": "扱われている教科",
+    "required": true,
+    "multiple": true,
+    "format": [
+      "国語",
+      "社会",
+      "算数",
+      "理科",
+      "生活",
+      "音楽",
+      "図画工作",
+      "家庭",
+      "体育",
+      "道徳",
+      "特別活動",
+      "総合的な学習の時間",
+      "美術",
+      "保健体育",
+      "技術・家庭",
+      "外国語",
+      "国語表現",
+      "国語総合",
+      "現代文",
+      "古典",
+      "古典講読",
+      "世界史",
+      "日本史",
+      "地理",
+      "現代社会",
+      "倫理",
+      "政治・経済",
+      "数学基礎",
+      "理科基礎",
+      "理科総合",
+      "物理",
+      "化学",
+      "生物",
+      "地学",
+      "保健",
+      "工芸",
+      "書道",
+      "オーラル・コミュニケーション",
+      "リーディング",
+      "ライティング",
+      "家庭基礎",
+      "家庭総合",
+      "生活技術",
+      "情報"
+    ]
+  },
+  "content_name": {
+    "name": "コンテンツ名称",
+    "required": true,
+    "multiple": false
+  },
+  "tools": {
+    "name": "活用するICTツール・サービス",
+    "required": false,
+    "multiple": true
+  },
+  "description": {
+    "name": "実践事例レポートの内容詳細",
+    "required": true,
+    "multiple": false
+  },
+  "url": {
+    "name": "実践事例レポートURL",
+    "required": true,
+    "multiple": false
+  }
+}
