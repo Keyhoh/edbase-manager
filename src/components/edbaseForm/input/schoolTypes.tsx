@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Form, Row } from "react-bootstrap"
 import { graphql, useStaticQuery } from "gatsby"
-import { v4 as uuid } from "uuid"
 
 import SelectCheck from "../../input/select/check"
 
@@ -25,11 +24,7 @@ const SchoolTypes = () => {
       }
     }`
   )
-  const getChecks = (checkList: string[]) => {
-    return checkList.map((name: string) => (
-      <Form.Check key={uuid().toString()} name="school_types" inline={true} label={name} value={name} />
-    ))
-  }
+
   const getEntries = (nameList: string[]) => nameList.map((name: string) => {
     return { label: name, value: name }
   })
