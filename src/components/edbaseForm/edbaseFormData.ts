@@ -1,4 +1,5 @@
 import { isNotBlank } from "../../util"
+import { Parser } from "json2csv"
 
 export default class EdbaseFormData {
   contents = new Map<string, string[]>()
@@ -10,23 +11,22 @@ export default class EdbaseFormData {
     formData.forEach((value: string, key: string) => {
       if (typeof value === "string") {
         let tmp = this.contents.get(key) || [] as string[]
-        tmp.push(value)
+        isNotBlank(value) && tmp.push(value)
         this.contents.set(key, tmp)
       }
     })
   }
 
-  isInvalid(){
-    return this.form.getElementsByClassName('is-invalid').length > 0
+  isInvalid() {
+    return this.form.getElementsByClassName("is-invalid").length > 0
   }
 
   toCsv() {
-    let header = []
-    let record = []
+    let data = {}
     this.contents.forEach((value: string[], key: string) => {
-      header.push(key)
-      record.push(`"${value.filter(isNotBlank).map(s => s.replace(/"/g, "\"\"")).join(",")}"`)
+      data[key] = value.length === 0 ? null : value
     })
-    return header.join(",") + "\n" + record.join(",")
+    const fields = Object.keys(data)
+    return new Parser({ fields }).parse(data)
   }
 }
