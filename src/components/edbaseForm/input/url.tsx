@@ -25,7 +25,7 @@ const Url = () => {
     <Form.Group as={Row} controlId="urls">
       <Form.Label column sm="2">{url.name}</Form.Label>
       <Col sm="10">
-        <Form.Control name="urls" type="text" />
+        <Form.Control name="url" type="text" />
       </Col>
     </Form.Group>
   )
