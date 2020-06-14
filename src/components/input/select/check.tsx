@@ -46,7 +46,6 @@ export default class Check extends React.Component<PropTypes, StateTypes> {
         <Form.Check
           key={key}
           id={key}
-          name={this.props.name}
           label={label}
           value={value}
           disabled={disabled}
@@ -57,8 +56,16 @@ export default class Check extends React.Component<PropTypes, StateTypes> {
   }
 
   render() {
+    const value = Array.from(this.state.value.values()).join(",")
     return (
       <Form.Group>
+        <Form.Control
+          name={this.props.name} as={"input"}
+          value={value}
+          isInvalid={this.props.required || !value}
+          onChange={() => {}}
+          hidden />
+          <Form.Control.Feedback type={"invalid"}>１つ以上選択してください</Form.Control.Feedback>
         {this.getChecks()}
       </Form.Group>
     )

@@ -1,9 +1,9 @@
-import { string } from "prop-types"
-
 export default class EdbaseFormData {
   contents = new Map<string, string[]>()
+  readonly form: HTMLFormElement
 
   constructor(form: HTMLFormElement) {
+    this.form = form
     const formData: FormData = new FormData(form)
     formData.forEach((value: string, key: string) => {
       if (typeof value === "string") {
@@ -14,6 +14,10 @@ export default class EdbaseFormData {
     })
   }
 
+  isInvalid(){
+    return this.form.getElementsByClassName('is-invalid').length > 0
+  }
+
   toCsv() {
     let header = []
     let record = []
@@ -22,9 +26,5 @@ export default class EdbaseFormData {
       record.push(`"${value.map(s => s.replace(/"/g, "\"\"")).join(",")}"`)
     })
     return header.join(",") + "\n" + record.join(",")
-  }
-
-  show() {
-    console.log(this.contents)
   }
 }

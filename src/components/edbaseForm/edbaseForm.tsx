@@ -25,14 +25,15 @@ class EdbaseForm extends React.Component {
 
   show(e) {
     e.preventDefault()
-    const form = document.querySelector("form")
-    const edbaseForm = new EdbaseFormData(form)
+    const edbaseForm = new EdbaseFormData(e.currentTarget)
+    if (edbaseForm.isInvalid()) return
+
     console.log(edbaseForm.toCsv())
   }
 
   render() {
     return (
-      <Form onSubmit={this.show}>
+      <Form noValidate onSubmit={this.show}>
         <ContentName />
         <Form.Group as={Row} controlId="provider">
           <Col>

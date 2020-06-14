@@ -28,6 +28,7 @@ const SchoolTypes = () => {
   const getEntries = (nameList: string[]) => nameList.map((name: string) => {
     return { label: name, value: name }
   })
+
   return (
     <Form.Group as={Row} controlId="school-types">
       <Form.Label column sm="2">{school_types.name}</Form.Label>
