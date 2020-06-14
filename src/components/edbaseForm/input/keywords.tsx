@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Col, Form, Row } from "react-bootstrap"
 import { graphql, useStaticQuery } from "gatsby"
+import MultipleText from "../../input/multipleText"
 
 /**
  * 実践されている内容のキーワード
@@ -26,7 +27,7 @@ const Keywords = () => {
     <Form.Group as={Row} controlId="keywords">
       <Form.Label column sm="2">{keywords.name}</Form.Label>
       <Col sm="10">
-        <Form.Control required={keywords.required} name="keywords" type="text" />
+        <MultipleText required={keywords.required} name="keywords"/>
       </Col>
     </Form.Group>
   )

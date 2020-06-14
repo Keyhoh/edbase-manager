@@ -1,8 +1,8 @@
 import * as React from "react"
 import { FormEvent } from "react"
 import { Form } from "react-bootstrap"
-import { Set } from "core-js"
 import { v4 as uuid } from "uuid"
+import { isNotBlank } from "../../../util"
 
 type PropTypes = {
   name: string,
@@ -13,7 +13,7 @@ type PropTypes = {
 
 type StateTypes = {
   entries: { key: string, label?: string, value: string | number | string[], disabled?: boolean }[]
-  value: Set<string>
+  selected: Set<string>
 }
 
 export default class Check extends React.Component<PropTypes, StateTypes> {
@@ -21,7 +21,7 @@ export default class Check extends React.Component<PropTypes, StateTypes> {
   constructor(props) {
     super(props)
     this.state = {
-      value: new Set<string>(),
+      selected: new Set<string>(),
       entries: props.entries.map(entry => {
         return { key: uuid().toString(), ...entry }
       })
@@ -31,13 +31,13 @@ export default class Check extends React.Component<PropTypes, StateTypes> {
 
   handleClick(e: FormEvent) {
     const checkbox: HTMLInputElement = e.target as HTMLInputElement
-    let value = this.state.value
+    let value = this.state.selected
     if (checkbox.checked) {
       value.add(checkbox.value)
     } else {
       value.delete(checkbox.value)
     }
-    this.setState({ value: value })
+    this.setState({ selected: value })
   }
 
   getChecks() {
@@ -46,6 +46,7 @@ export default class Check extends React.Component<PropTypes, StateTypes> {
         <Form.Check
           key={key}
           id={key}
+          name={this.props.name}
           label={label}
           value={value}
           disabled={disabled}
@@ -55,17 +56,21 @@ export default class Check extends React.Component<PropTypes, StateTypes> {
     })
   }
 
+  isInvalid() {
+    return this.props.required &&
+      Array.from(this.state.selected.values())
+        .filter(isNotBlank)
+        .length === 0
+  }
+
   render() {
-    const value = Array.from(this.state.value.values()).join(",")
     return (
       <Form.Group>
         <Form.Control
-          name={this.props.name} as={"input"}
-          value={value}
-          isInvalid={this.props.required || !value}
+          isInvalid={this.isInvalid()}
           onChange={() => {}}
           hidden />
-          <Form.Control.Feedback type={"invalid"}>１つ以上選択してください</Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">１つ以上選択してください</Form.Control.Feedback>
         {this.getChecks()}
       </Form.Group>
     )

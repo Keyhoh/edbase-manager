@@ -1,3 +1,5 @@
+import { isBlank } from "../../util"
+
 export default class EdbaseFormData {
   contents = new Map<string, string[]>()
   readonly form: HTMLFormElement
@@ -23,7 +25,7 @@ export default class EdbaseFormData {
     let record = []
     this.contents.forEach((value: string[], key: string) => {
       header.push(key)
-      record.push(`"${value.map(s => s.replace(/"/g, "\"\"")).join(",")}"`)
+      record.push(`"${value.filter(isBlank).map(s => s.replace(/"/g, "\"\"")).join(",")}"`)
     })
     return header.join(",") + "\n" + record.join(",")
   }

@@ -29,6 +29,7 @@
     "gatsby-transformer-json": "^2.4.5",
     "prettier": "2.0.5",
     "react-bootstrap": "^1.0.1",
+    "react-bootstrap-icons": "^1.0.3-alpha4",
     "uuid": "^8.1.0"
   },
   "keywords": [

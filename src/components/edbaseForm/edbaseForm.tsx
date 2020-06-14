@@ -15,6 +15,7 @@ import Subjects from "./input/subjects"
 import Url from "./input/url"
 import CsvExport from "../csvExport"
 import EdbaseFormData from "./edbaseFormData"
+import MultipleText from "../input/multipleText"
 
 class EdbaseForm extends React.Component {
 

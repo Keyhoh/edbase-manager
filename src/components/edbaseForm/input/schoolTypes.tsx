@@ -32,7 +32,7 @@ const SchoolTypes = () => {
   return (
     <Form.Group as={Row} controlId="school-types">
       <Form.Label column sm="2">{school_types.name}</Form.Label>
-      <SelectCheck name="school_types" inline entries={getEntries(school_types.format)} />
+      <SelectCheck required={true} name="school_types" inline entries={getEntries(school_types.format)} />
     </Form.Group>
   )
 }
