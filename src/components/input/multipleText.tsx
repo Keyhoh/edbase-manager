@@ -73,7 +73,7 @@ export default class MultipleText extends React.Component<PropTypes, StateTypes>
             isInvalid={this.isInvalid()}
             onChange={() => {}}
             hidden />
-          <Form.Control.Feedback type="invalid">必須項目です</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">入力してください</Form.Control.Feedback>
           <InputGroup>{this.getOptions()}</InputGroup>
         </Form.Group>
         <Button block type="button" onClick={() => this.set()}><PlusSquare /></Button>

@@ -1,6 +1,8 @@
 import * as React from "react"
-import { Form, Row, Col } from "react-bootstrap"
-import { useStaticQuery, graphql } from "gatsby"
+import { ChangeEvent, useState } from "react"
+import { Col, Form, Row } from "react-bootstrap"
+import { graphql, useStaticQuery } from "gatsby"
+import { isBlank } from "../../../util"
 
 /**
  * コンテンツ名称の入力コンポーネント
@@ -23,11 +25,23 @@ const ContentName = () => {
     }`
   )
 
+  const [text, setText] = useState("")
+
+  const handleChange = (e: ChangeEvent) => {
+    setText((e.currentTarget as HTMLInputElement).value || "")
+  }
+
+  const isInvalid = () => {
+    return content_name.required && isBlank(text)
+  }
+
   return (
     <Form.Group as={Row} controlId="content-name">
       <Form.Label column sm="2">{content_name.name}</Form.Label>
       <Col sm="10">
-        <Form.Control required={content_name.required} name="content_name" type="text" />
+        <Form.Control required={content_name.required} isInvalid={isInvalid()} onChange={handleChange}
+                      name="content_name" type="text" />
+        <Form.Control.Feedback type="invalid">入力してください</Form.Control.Feedback>
       </Col>
     </Form.Group>
   )
