@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from "react"
 import { Col, Form, Row } from "react-bootstrap"
 import { graphql, useStaticQuery } from "gatsby"
 import { isBlank } from "../../../util"
+import { v4 as uuid } from "uuid"
 
 /**
  * 運営母体の区分の入力コンポーネント
@@ -38,7 +39,7 @@ const ManagementBody = () => {
 
   const generateOptions = () => {
     return (
-      management_body.format.map(schoolType => <option value={schoolType}>{schoolType}</option>)
+      management_body.format.map(schoolType => <option key={uuid().toString()} value={schoolType}>{schoolType}</option>)
     )
   }
 
@@ -47,8 +48,8 @@ const ManagementBody = () => {
       <Form.Label column sm="2">{management_body.name}</Form.Label>
       <Col sm="10">
         <Form.Control required={management_body.required} isInvalid={isInvalid()} onChange={handleChange}
-                      name="management_body" as="select">
-          <option disabled selected>選択してください</option>
+                      defaultValue="" name="management_body" as="select">
+          <option disabled value="">選択してください</option>
           {generateOptions()}
         </Form.Control>
       </Col>
