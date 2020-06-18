@@ -20,6 +20,7 @@ const ManagementBody = () => {
         management_body {
           name
           required
+          format
         }
       }
     }`
@@ -35,13 +36,21 @@ const ManagementBody = () => {
     return management_body.required && isBlank(text)
   }
 
+  const generateOptions = () => {
+    return (
+      management_body.format.map(schoolType => <option value={schoolType}>{schoolType}</option>)
+    )
+  }
+
   return (
     <Form.Group as={Row} controlId="management-body">
       <Form.Label column sm="2">{management_body.name}</Form.Label>
       <Col sm="10">
         <Form.Control required={management_body.required} isInvalid={isInvalid()} onChange={handleChange}
-                      name="management_body" type="text" />
-        <Form.Control.Feedback type="invalid">入力してください</Form.Control.Feedback>
+                      name="management_body" as="select">
+          <option disabled selected>選択してください</option>
+          {generateOptions()}
+        </Form.Control>
       </Col>
     </Form.Group>
   )
