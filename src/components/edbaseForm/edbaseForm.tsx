@@ -16,6 +16,7 @@ import Url from "./input/url"
 import CsvExport from "../csvExport"
 import EdbaseFormData from "./edbaseFormData"
 import MultipleText from "../input/multipleText"
+import Categories from "./input/categories"
 
 class EdbaseForm extends React.Component {
 
@@ -49,6 +50,7 @@ class EdbaseForm extends React.Component {
         <SchoolTypes />
         <Departments />
         <Tools />
+        <Categories />
         <Keywords />
         <Subjects />
         <Description />
